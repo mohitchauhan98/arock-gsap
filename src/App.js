@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Home from "./components/LandingPage/Home";
+import LoadParent from "./components/Loading/LoadParent";
+import MenuPage from "./components/Menu/MenuPage";
 
 function App() {
+
+  const [menuOpen, setMenuOpen] = useState(false)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-screen bg-[#111] overflow-hidden">
+      <MenuPage menuOpen = {menuOpen} setMenuOpen = {setMenuOpen} />
+      <LoadParent />
+      <Home menuOpen = {menuOpen} setMenuOpen = {setMenuOpen}/>
     </div>
   );
 }
